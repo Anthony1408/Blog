@@ -1,0 +1,55 @@
+<div id="template1">
+    {{#mass}}
+    <h1 align="center">{{author}}</h1>
+    <img src="{{img}}" alt="">
+
+    <p class="p">{{page}}</p>
+    {{/mass}}
+</div>
+
+<div id="template4">
+    {{#mass_right}}
+    <h1 align="center">{{author_head}}</h1>
+
+    <p class="p">{{page_head}}</p>
+    {{/mass_right}}
+</div>
+
+<div id="template2">
+    <h1 class="h1">{{title}}</h1>
+
+    <p class="p1">{{body}}</p>
+
+    <p>
+        <a class="btn btn-lg btn-success green-button" role="button" href="http://www.dragonage.com/#!/ru_RU/home">{{title}}</a>
+    </p>
+</div>
+
+<div id="template3">
+    <ul class="pagination class-pagination">
+        <li><a onclick="previousPage()"><span aria-hidden="true">&laquo;</span><span class="sr-only" >Previous</span></a>
+        </li>
+        {{#mass_pagination}}
+        <li><a onclick="page({{num}})">{{num}}</a></li>
+        {{/mass_pagination}}
+        <li><a onclick="nextPage()"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
+        </li>
+    </ul>
+</div>
+
+<div id="gallery_template">
+    <div id="w">
+        <div id="content">
+            <div id="thumbnails">
+                <ul class="clearfix">
+                    {{#picture_mass}}
+                    <li><a href="{{img1}}" title="{{title}}"><img src="{{img2}}" alt=":)"></a>
+                    </li>
+                    {{/picture_mass}}
+                </ul>
+            </div>
+        </div>
+        <!-- @end #content -->
+    </div>
+    <!-- @end #w -->
+</div>
