@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
@@ -30,7 +25,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.mainForm);
 app.get('/left_content/page/:num',routes.mainFormPage);
-app.get('/search/:str', routes.searchForm);
+app.get('/search/:str/Param/:param', routes.searchForm);
+app.get('/search/FisrtDate/:data1/SecondDate/:data2/Param/:param',routes.searchForm);
+app.get('/search_left_content/page/:num',routes.searchMainFormPage);
+app.get('/addPublication/Author/:author/Img/:img/Content/:content',routes.addPublication)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

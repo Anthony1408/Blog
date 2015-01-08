@@ -1,0 +1,32 @@
+<nav id="pagination-top" align="center">
+    <ul class="pagination">
+        <li><a onclick=""><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
+        </li>
+        {{#mass_pagination}}
+            <li><a onclick="changePage({{num}})">{{num}}</a></li>
+        {{/mass_pagination}}
+        <li><a onclick=""><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
+        </li>
+    </ul>
+</nav>
+<div class="block-round-content" id="left-div">
+    {{#left_content}}
+        <h1 align="center">{{author}}</h1>
+        <img src="{{img}}" alt="">
+
+        <p class="p">{{page}}</p>
+        <h2>Data: {{Date}}</h2>
+    {{/left_content}}
+
+</div>
+<nav id="pagination-top" align="center">
+    <ul class="pagination ">
+        <li><a onclick="previousPage()"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
+        </li>
+        {{#mass_pagination}}
+            <li><a onclick="changePage({{num}})">{{num}}</a></li>
+        {{/mass_pagination}}
+        <li><a onclick="nextPage()"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
+        </li>
+    </ul>
+</nav>

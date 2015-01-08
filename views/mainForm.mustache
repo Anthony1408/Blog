@@ -10,56 +10,70 @@
     <script type="text/javascript" src="mustache.js-master/mustache.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.lightbox-0.5.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
-<body class="body" onload="changePage(1),hide_gallery()">
-
+<body class="body" onload="changePage(1),hide_gallery()" id="mainBody">
 <h3 class="text-muted search_form_margin">:)</h3>
-
-<div class="form-group search_form_margin">
-    <input type="text" class="form-control search_form " placeholder="Search fo Title" id="search_text">
-    <button type="submit" class="btn btn-default" onclick="search()">Go!</button>
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group search_form_margin" id = "searchForm">
+            <input type="text" class="form-control search_form " placeholder="Search fo Title" id="search_text">
+            <button type="submit" class="btn btn-default" onclick="trueSearch(),search(1)">Go!</button>
+            <input type="checkbox" unchecked id="cb" onchange="showOrHide()">
+        </div>
+    </div>
+    <div id="DateFirst">
+        <div class="col-md-2">
+            <div class="form-group search_form_margin">
+                <input type="text" class="form-control search_form " placeholder="Date1" onfocus="calendar(1)"
+                       onblur="hideLeftCaledar()" id = "dateText1">
+                <div id="cal_placeholder1"></div>
+                <button type="submit" class="btn btn-default" id="DateSearch" onclick="search(2),trueSearch()">Search!</button>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group search_form_margin">
+                <input type="text" class="form-control search_form " placeholder="Date2" onfocus="calendar(2)"
+                        id = "dateText2">
+                <div id="cal_placeholder2"></div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div class="btn-group btn-group-justified " role="group" aria-label="...">
     <div class="btn-group" role="group">
-        <button type="submit" class="btn btn-default" onclick="show_main(),hide_gallery(),changePage(1)">Home</button>
+        <button type="submit" class="btn btn-default"
+                onclick="falseSearch(),show_main(),hide_gallery(),changePage(1),buildPagination()">Home
+        </button>
     </div>
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-default" onclick="hide_main(),show_gallery()">Gallery</button>
     </div>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default" onclick="show_hide()">Right</button>
-    </div>
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default">Right</button>
-    </div>
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default" >Right</button>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-expanded="true">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#openModal">Add a new publication</a></li>
+                <li class="divider"></li>
+            </ul>
+        </div>
     </div>
 </div>
+</div>
+<div id="openModal" class="modalDialog">
+    {{>pop_up_window}}
+</div>
+
 <div id="gallery">
     {{>gallery}}
 </div>
-<div id="main">
-    {{>top_content}}
+<div class="col-md-6  main1 div-left" id="content_pagination">
+    {{>content_pagination}}
 </div>
-<div class="col-md-6   main1 div-left">
-    <nav id="pagination-top">
-        {{>pagination}}
-    </nav>
-    <div class="block-round-content" id="left-div">
-        {{>left_content}}
-    </div>
-    <nav id="pagination-bottom">
-        {{>pagination}}
-    </nav>
-</div>
-<div class="col-md-4 div row2  main div-right ">
-    <div id="right-div">
-        {{>right_content}}
-</div>
-</div>
-
 <script type="text/javascript" src="function.js"></script>
 </body>
 </html>
